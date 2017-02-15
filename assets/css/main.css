@@ -1,11 +1,16 @@
+*{
+	margin: 0;
+	padding: 0;
+}
 body{
 	text-align: center;
 	background-color: #232323;
 	color: #fff;
 }
 
-header{
+h1{
 	height: 100px;
+	margin: 0;
 }
 
 nav{
