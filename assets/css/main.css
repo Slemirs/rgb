@@ -1,0 +1,46 @@
+body{
+	text-align: center;
+	background-color: #232323;
+	color: #fff;
+}
+
+header{
+	height: 100px;
+}
+
+nav{
+	background-color: #abc;
+}
+
+nav li{
+	display: inline-block;
+	list-style: none;
+}
+
+a{
+	color: #fff;
+	text-decoration: none;
+}
+
+button{
+	border: none;
+	background-color: none;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+.wrapper{
+	width: 600px;
+	margin: 5% auto;
+
+}
+.square{
+	float: left;
+	width: 30%;
+	margin: 1%;
+	padding-bottom: 25%;
+	background-color: #fff;
+
+}
