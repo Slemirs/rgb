@@ -2,42 +2,65 @@
 	margin: 0;
 	padding: 0;
 }
+
 body{
 	text-align: center;
 	background-color: #232323;
-	color: #fff;
+	font-family: courier;
 }
 
 h1{
-	height: 100px;
-	margin: 0;
+	color: #fff;
+	text-transform: uppercase;
+	background-color: steelblue;
+}
+
+#colorDisplay{
+	font-size: 1.5em;
 }
 
 nav{
-	background-color: #abc;
-}
-
-nav li{
-	display: inline-block;
-	list-style: none;
+	background-color: #fff;
 }
 
 a{
-	color: #fff;
+	display: inline-block;
+	padding: 2px 5px 0;
 	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: rgb(42, 55, 120);
+	letter-spacing: 2px;
+	transition: all 0.5s;
+}
+
+a:hover{
+	color: #fff;
+	background-color: darkred;
 }
 
 button{
+	outline: 0;
+	padding: 1px 5px;
 	border: none;
-	background-color: none;
+	height: 100%;
+	background-color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: rgb(42, 55, 120);
+	letter-spacing: 2px;
+	font-size: inherit;
+	transition: all 0.5s;
 }
 
 button:hover{
 	cursor: pointer;
+	color: #fff;
+	background-color: steelblue;
 }
 
 .wrapper{
-	width: 600px;
+	max-width: 600px;
 	margin: 5% auto;
 
 }
@@ -47,5 +70,20 @@ button:hover{
 	margin: 1%;
 	padding-bottom: 25%;
 	background-color: #fff;
+	border-radius: 25px;
+	transition: all 1.0s;
+}
 
+.selected{
+	color: #fff;
+	background-color: steelblue;
+}
+
+#statusDisplay{
+	display: inline-block;
+	width: 25%;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: rgb(42, 55, 120);
+	letter-spacing: 2px;
 }

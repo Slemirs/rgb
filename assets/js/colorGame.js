@@ -7,9 +7,12 @@ var statusDisplay = document.querySelector("#statusDisplay"); // span for displa
 // buttons for difficulty
 var easyBtn = document.querySelector("#easyBtn"); 
 var hardBtn = document.querySelector("#hardBtn");
+// for color
+var backColor = "steelblue";
 // variables for logic
 var colors;
 var pickedColor;
+var numSquares = 6;
 
 // functions
 	// change color if correct
@@ -49,26 +52,66 @@ function generateRgbColors(){
 	// reset button
 function resetGame(){
 	// reload colors for squares
-	colors = generateRandomColors(6);
+	colors = generateRandomColors(numSquares);
 	// pick new random color
 	pickedColor = pickColor(colors);
 	// change value of picked color
 	colorDisplay.textContent = pickedColor;
+	// change status of choose
+	statusDisplay.textContent = "";
+	// change text rest btn
+	reload.textContent = "New color"
 	// change colors for square
 	for( var i = 0; i < square.length; i++ ){
 		// add initial colors for squares
 		square[i].style.background = colors[i];
 	}
 	// reset background for h1
-	h1.style.background = "#232323";
+	h1.style.background = backColor;
 }
 
 // logic
 // variables for logic
-colors = generateRandomColors(6); //array for create colors
-pickedColor = pickColor(colors); //one color from array, which we must find
+colors = generateRandomColors(numSquares);
+pickedColor = pickColor(colors); 
 colorDisplay.textContent = pickedColor;
 reload.addEventListener("click", resetGame);
+
+easyBtn.addEventListener("click", function(){
+	hardBtn.classList.remove("selected");
+	easyBtn.classList.add("selected");
+	statusDisplay.textContent = "";
+	reload.textContent = "New color"
+	numSquares = 3;
+	h1.style.background = backColor;
+	colors = generateRandomColors(numSquares);
+	pickedColor = pickColor(colors); 
+	colorDisplay.textContent = pickedColor;
+	for( var i = 0; i < square.length; i++ ){
+		if(colors[i]){
+			square[i].style.background = colors[i];
+		}else{
+			square[i].style.display = "none";
+		}
+		
+	}
+});
+
+hardBtn.addEventListener("click", function(){
+	easyBtn.classList.remove("selected");
+	hardBtn.classList.add("selected");
+	statusDisplay.textContent = "";
+	reload.textContent = "New color"
+	numSquares = 6;
+	h1.style.background = backColor;
+	colors = generateRandomColors(numSquares);
+	pickedColor = pickColor(colors); 
+	colorDisplay.textContent = pickedColor;
+	for( var i = 0; i < square.length; i++ ){
+		square[i].style.background = colors[i];
+		square[i].style.display = "block";
+	}
+});
 
 for( var i = 0; i < square.length; i++ ){
 	// add initial colors for squares
@@ -79,6 +122,7 @@ for( var i = 0; i < square.length; i++ ){
 
 		if (clickedColor === pickedColor){
 			statusDisplay.textContent = "Correct!";
+			statusDisplay.style.color = "green";
 			reload.textContent = "Play Again?";
 			changeColor(pickedColor);
 			h1.style.background = pickedColor;
@@ -86,6 +130,7 @@ for( var i = 0; i < square.length; i++ ){
 		else{
 			this.style.background = "#232323";
 			statusDisplay.textContent = "Oops, Try Again!";
+			statusDisplay.style.color = "red";
 		}
 	});
 	
